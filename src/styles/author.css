@@ -5,6 +5,11 @@ main .title {
   margin-bottom: 1.5rem;
 }
 
+main .title p {
+  color: var(--gray);
+  font-size: 1em;
+}
+
 main .title h1 {
   background-image: linear-gradient(
     60deg,
@@ -19,13 +24,8 @@ main .title h1 {
   -webkit-box-decoration-break: clone;
 }
 
-main .title p {
-  color: var(--gray);
-  font-size: 1em;
-}
-
 main figure {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--gray);
   border-radius: 5px;
   margin-bottom: 1rem;
 }

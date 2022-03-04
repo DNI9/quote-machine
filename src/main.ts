@@ -2,7 +2,7 @@ import {getRandomQuote} from './lib/quote';
 import './styles/globals.css';
 import './styles/header.css';
 import './styles/main.css';
-import {toggleLoading} from './utils';
+import {themeSwitcher, toggleLoading} from './utils';
 
 const randomBtn = document.querySelector<HTMLButtonElement>('#random-btn')!;
 const randomIcon =
@@ -12,6 +12,9 @@ const blockquote = document.querySelector<HTMLParagraphElement>(
 )!;
 const authorElement = document.querySelector<HTMLLinkElement>('#author')!;
 const figure = document.querySelector('main figure')!;
+const themeSwitch = document.querySelector<HTMLInputElement>('.theme-switch')!;
+
+themeSwitcher(themeSwitch);
 
 const fetchQuote = async () => {
   try {

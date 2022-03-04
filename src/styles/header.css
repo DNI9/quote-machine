@@ -3,7 +3,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 2rem;
-  border-bottom: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--gray);
   font-size: 1rem;
 }
 
@@ -27,11 +27,14 @@ header #random-btn {
   user-select: none;
   border: none;
   background: none;
+  margin-left: auto;
+  margin-right: 1em;
+  color: var(--gray);
 }
 
 header #random-btn:hover {
   background: var(--theme-color);
-  color: var(--text-color);
+  color: var(--bg-color);
   transition: all 0.2s ease-in;
 }
 

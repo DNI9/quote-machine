@@ -3,15 +3,17 @@
   --light-text: #1f1d2e;
   --light-bg: #e0def4;
   --light-theme: #31748f;
-  --light-theme-secondary: #cca2a0;
+  --light-theme-secondary: #f6c177;
   --light-gray: #6e6a86;
+  --light-switch-icon: '🌚';
 
   /* Dark mode */
   --dark-text: #e0def4;
   --dark-bg: #1f1d2e;
   --dark-theme: #9ccfd8;
-  --dark-theme-secondary: #cca2a0;
+  --dark-theme-secondary: #f6c177;
   --dark-gray: #908caa;
+  --dark-switch-icon: '🌝';
 
   /* Default mode */
   --text-color: var(--light-text);
@@ -19,6 +21,19 @@
   --theme-color: var(--light-theme);
   --theme-secondary: var(--light-theme-secondary);
   --gray: var(--light-gray);
+  --switch-icon: var(--light-switch-icon);
+  --switch-shadow-color: var(--light-theme);
+}
+
+/* Switched mode */
+.theme-switch:checked ~ #app {
+  --text-color: var(--dark-text);
+  --bg-color: var(--dark-bg);
+  --theme-color: var(--dark-theme);
+  --theme-secondary: var(--dark-theme-secondary);
+  --gray: var(--dark-gray);
+  --switch-icon: var(--dark-switch-icon);
+  --switch-shadow-color: #f6c177;
 }
 
 /*
@@ -147,4 +162,30 @@ a {
     opacity: 1;
     transform: translateY(0%);
   }
+}
+
+/* Theme switcher */
+.theme-switch {
+  /* Hides the checkbox */
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.switch-label {
+  cursor: pointer;
+  display: flex;
+}
+
+.switch-label::before {
+  content: var(--switch-icon);
+  font-size: 2em;
+  transition: text-shadow 0.2s;
+}
+
+.theme-switch:focus ~ #app .switch-label::before,
+.switch-label:hover::before {
+  text-shadow: 0 0 15px var(--switch-shadow-color);
 }

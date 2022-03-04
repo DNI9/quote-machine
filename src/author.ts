@@ -3,6 +3,7 @@ import './styles/author.css';
 import './styles/globals.css';
 import './styles/header.css';
 import './styles/main.css';
+import {themeSwitcher} from './utils';
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -15,6 +16,9 @@ const quotesSection = document.getElementById('quotes')!;
 const loadingTitle = document.querySelector<HTMLHeadingElement>(
   'main .loading-title'
 )!;
+const themeSwitch = document.querySelector<HTMLInputElement>('.theme-switch')!;
+
+themeSwitcher(themeSwitch);
 
 const fetchQuotes = async () => {
   try {
