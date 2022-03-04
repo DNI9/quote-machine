@@ -17,7 +17,7 @@ const fetchQuote = async () => {
     randomBtn.disabled = true;
     const quote = await getRandomQuote();
     blockquote.innerText = quote.quoteText;
-    author.innerText = `— ${quote.quoteAuthor}`;
+    author.innerText = quote.quoteAuthor;
   } catch (error) {
     console.log(error);
     alert('Failed to get a quote!');
