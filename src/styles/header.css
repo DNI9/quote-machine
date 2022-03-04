@@ -4,6 +4,7 @@ header {
   justify-content: space-between;
   padding: 0.5rem 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.521);
+  font-size: 1rem;
 }
 
 header h1 {
@@ -42,6 +43,24 @@ header #random-btn:disabled svg {
 }
 
 header #random-btn p {
-  font-size: 1.3rem;
+  font-size: 1.5em;
   margin-left: 5px;
+}
+
+@media screen and (max-width: 850px) {
+  header {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    font-size: 0.6rem;
+  }
+  header #random-btn p {
+    display: none;
+  }
+  header #random-btn svg {
+    height: 1.8em;
+  }
 }
