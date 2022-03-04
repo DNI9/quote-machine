@@ -7,18 +7,7 @@ import './styles/main.css';
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const author = urlParams.get('author');
-{
-  `
-	<figure>
-				<blockquote id="quote">
-					<p>Loading a great quote...</p>
-				</blockquote>
-				<figcaption id="author">
-					Author
-				</figcaption>
-			</figure>
-			`;
-}
+
 if (!author) window.location.replace('/');
 
 const title = document.querySelector<HTMLHeadingElement>('main .title')!;
@@ -30,7 +19,7 @@ const loadingTitle = document.querySelector<HTMLHeadingElement>(
 const fetchQuotes = async () => {
   try {
     const quotes = await getQuoteByAuthor(author!);
-    title.innerText = `Quotes by ${quotes[0].author}`;
+    title.innerHTML += `<h1>${quotes[0].author}</h1>`;
 
     quotes.forEach(q => {
       quotesSection.innerHTML += `<figure>
