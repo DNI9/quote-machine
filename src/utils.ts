@@ -2,14 +2,21 @@ export const toggleLoading = (element: HTMLElement | any) => {
   element.classList.toggle('loading');
 };
 
-export const themeSwitcher = (element: HTMLInputElement) => {
-  element.checked = localStorage.getItem('switchedTheme') === 'true';
+const THEME_KEY = 'QM_THEME';
 
+export const themeSwitcher = (element: HTMLInputElement) => {
+  if (localStorage.getItem(THEME_KEY) === 'dark') {
+    element.checked = true;
+    document.body.classList.add('dark');
+  }
   element.addEventListener('change', function (e) {
-    if ((<HTMLInputElement>e.target).checked === true) {
-      localStorage.setItem('switchedTheme', 'true');
+    if ((<HTMLInputElement>e.target).checked) {
+      document.body.classList.add('dark');
+      localStorage.setItem(THEME_KEY, 'dark');
     } else {
-      localStorage.removeItem('switchedTheme');
+      document.body.classList.remove('dark');
+      // localStorage.removeItem('switchedTheme');
+      localStorage.removeItem(THEME_KEY);
     }
   });
 };

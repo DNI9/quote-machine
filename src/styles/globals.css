@@ -1,3 +1,5 @@
+/* ROSE PINE THEME */
+
 :root {
   /* Light mode */
   --light-text: #1f1d2e;
@@ -26,7 +28,7 @@
 }
 
 /* Switched mode */
-.theme-switch:checked ~ #app {
+.dark {
   --text-color: var(--dark-text);
   --bg-color: var(--dark-bg);
   --theme-color: var(--dark-theme);
@@ -48,13 +50,6 @@
 * {
   margin: 0;
 }
-/*
-  3. Allow percentage-based heights in the application
-*/
-html,
-body {
-  height: 100%;
-}
 
 /*
   Typographic tweaks!
@@ -62,6 +57,7 @@ body {
   5. Improve text rendering
 */
 body {
+  background: var(--bg-color);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
