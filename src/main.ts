@@ -19,7 +19,7 @@ const fetchQuote = async () => {
 
     const {author, content, authorSlug} = await getRandomQuote();
     blockquote.innerText = content;
-    authorElement.innerHTML = `<a href="author.html?author=${authorSlug}">${author}</a>`;
+    authorElement.innerHTML = `<a title="Get all quotes by ${author}" href="author.html?author=${authorSlug}">${author}</a>`;
   } catch (error) {
     console.log(error);
     alert('Failed to get a quote!');
