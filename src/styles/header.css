@@ -1,0 +1,47 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.521);
+}
+
+header h1 {
+  font-weight: 600;
+}
+
+header h1::before {
+  content: '\201C';
+}
+
+header h1::after {
+  content: '\201D';
+}
+
+header #random-btn {
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 5px;
+  user-select: none;
+  border: none;
+  background: none;
+}
+
+header #random-btn:hover {
+  background: rgb(193, 193, 196);
+  transition: all 0.2s ease-in;
+}
+
+header #random-btn:active {
+  transform: scale(0.9);
+}
+
+header #random-btn:disabled svg {
+  opacity: 0.7;
+}
+
+header #random-btn p {
+  font-size: 1.3rem;
+  margin-left: 5px;
+}

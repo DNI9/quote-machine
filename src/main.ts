@@ -1,5 +1,6 @@
-import {getRandomQuote} from './quote';
+import {getRandomQuote} from './lib/quote';
 import './styles/globals.css';
+import './styles/header.css';
 import './styles/main.css';
 import {toggleLoading} from './utils';
 
@@ -9,15 +10,16 @@ const randomIcon =
 const blockquote = document.querySelector<HTMLParagraphElement>(
   'figure blockquote p'
 )!;
-const author = document.getElementById('author')!;
+const authorElement = document.querySelector<HTMLLinkElement>('#author')!;
 
 const fetchQuote = async () => {
   try {
     toggleLoading(randomIcon);
     randomBtn.disabled = true;
-    const quote = await getRandomQuote();
-    blockquote.innerText = quote.quoteText;
-    author.innerText = quote.quoteAuthor;
+
+    const {author, content, authorSlug} = await getRandomQuote();
+    blockquote.innerText = content;
+    authorElement.innerHTML = `<a href="author.html?author=${authorSlug}">${author}</a>`;
   } catch (error) {
     console.log(error);
     alert('Failed to get a quote!');
