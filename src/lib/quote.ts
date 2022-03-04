@@ -1,4 +1,4 @@
-const BASE_URL = 'http://api.quotable.io';
+const BASE_URL = 'https://api.quotable.io';
 
 export interface QuoteType {
   tags: string[];
