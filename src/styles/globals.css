@@ -97,6 +97,10 @@ a {
   animation: spin 2s both infinite;
 }
 
+.display-none {
+  display: none;
+}
+
 @keyframes spin {
   from {
     transform: rotate(360deg);

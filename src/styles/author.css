@@ -10,3 +10,10 @@ main figure {
   border-radius: 5px;
   margin-bottom: 1rem;
 }
+
+main .loading-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}

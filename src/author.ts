@@ -23,6 +23,9 @@ if (!author) window.location.replace('/');
 
 const title = document.querySelector<HTMLHeadingElement>('main .title')!;
 const quotesSection = document.getElementById('quotes')!;
+const loadingTitle = document.querySelector<HTMLHeadingElement>(
+  'main .loading-title'
+)!;
 
 const fetchQuotes = async () => {
   try {
@@ -41,6 +44,8 @@ const fetchQuotes = async () => {
     console.error(error);
     alert('Failed to get quotes');
   } finally {
+    title.classList.remove('display-none');
+    loadingTitle.style.display = 'none';
     console.log('fetched');
   }
 };
