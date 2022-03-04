@@ -34,11 +34,10 @@ const fetchQuotes = async () => {
     });
   } catch (error) {
     console.error(error);
-    alert('Failed to get quotes');
+    if (error instanceof Error) alert(error.message || 'Failed to get quotes');
   } finally {
     title.classList.remove('display-none');
     loadingTitle.style.display = 'none';
-    console.log('fetched');
   }
 };
 

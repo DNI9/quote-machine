@@ -10,23 +10,21 @@ export interface QuoteType {
   dateModified: string;
 }
 
-export async function getRandomQuote(): Promise<QuoteType> {
-  const response = await window.fetch(BASE_URL + '/random');
-  const data: QuoteType = await response.json();
+async function fetcher<T = any>(url: string): Promise<T> {
+  const response = await window.fetch(url);
+  const data: T = await response.json();
   if (response.ok && data) return data;
-  else return Promise.reject(new Error('Could not get a random quote'));
+  else return Promise.reject(new Error('Failed to fetch data'));
+}
+
+export async function getRandomQuote(): Promise<QuoteType> {
+  return fetcher<QuoteType>(BASE_URL + '/random');
 }
 
 export async function getQuoteByAuthor(authorSlug: string, limit: number = 5) {
-  const response = await window.fetch(
-    BASE_URL + `/quotes?author=${authorSlug}&limit=${limit}`
-  );
-
   type JSONResponse = {results?: Array<QuoteType>};
-  const {results}: JSONResponse = await response.json();
-  if (response.ok && results?.length) return results;
-  else
-    return Promise.reject(
-      new Error('Could not get quotes by author ' + authorSlug)
-    );
+  const url = BASE_URL + `/quotes?author=${authorSlug}&limit=${limit}`;
+  const {results} = await fetcher<JSONResponse>(url);
+  if (!results?.length) throw new Error('No quotes found');
+  return results;
 }
