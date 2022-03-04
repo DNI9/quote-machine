@@ -6,9 +6,9 @@ import './styles/main.css';
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const author = urlParams.get('author');
+const authorSlug = urlParams.get('author');
 
-if (!author) window.location.replace('/');
+if (!authorSlug) window.location.replace('/');
 
 const title = document.querySelector<HTMLHeadingElement>('main .title')!;
 const quotesSection = document.getElementById('quotes')!;
@@ -18,9 +18,11 @@ const loadingTitle = document.querySelector<HTMLHeadingElement>(
 
 const fetchQuotes = async () => {
   try {
-    const quotes = await getQuoteByAuthor(author!);
+    const quotes = await getQuoteByAuthor(authorSlug!);
+    const author = quotes[0].author;
+    document.title = `Quotes by ${author}`;
     title.classList.add('lineUp');
-    title.innerHTML += `<p>Quotes By </p><h1>${quotes[0].author}</h1>`;
+    title.innerHTML += `<p>Quotes By </p><h1>${author}</h1>`;
 
     quotes.forEach(q => {
       quotesSection.innerHTML += `<figure class='lineUp'>
