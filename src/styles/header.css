@@ -3,7 +3,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.521);
+  border-bottom: 1px solid var(--text-color);
   font-size: 1rem;
 }
 
@@ -30,7 +30,8 @@ header #random-btn {
 }
 
 header #random-btn:hover {
-  background: rgb(193, 193, 196);
+  background: var(--theme-color);
+  color: var(--text-color);
   transition: all 0.2s ease-in;
 }
 

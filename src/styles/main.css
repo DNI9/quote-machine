@@ -10,6 +10,7 @@ main figure {
 
 main figure blockquote {
   font-size: inherit;
+  color: var(--text-color);
   font-weight: 800;
 }
 
@@ -25,6 +26,8 @@ main #author {
   text-align: right;
   font-weight: 400;
   font-size: 0.8em;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 main #author::before {

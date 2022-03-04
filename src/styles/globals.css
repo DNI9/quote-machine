@@ -1,3 +1,26 @@
+:root {
+  /* Light mode */
+  --light-text: #1f1d2e;
+  --light-bg: #e0def4;
+  --light-theme: #31748f;
+  --light-theme-secondary: #cca2a0;
+  --light-gray: #6e6a86;
+
+  /* Dark mode */
+  --dark-text: #e0def4;
+  --dark-bg: #1f1d2e;
+  --dark-theme: #9ccfd8;
+  --dark-theme-secondary: #cca2a0;
+  --dark-gray: #908caa;
+
+  /* Default mode */
+  --text-color: var(--light-text);
+  --bg-color: var(--light-bg);
+  --theme-color: var(--light-theme);
+  --theme-secondary: var(--light-theme-secondary);
+  --gray: var(--light-gray);
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -87,9 +110,10 @@ a {
   font-family: Inter, Helvetica, Arial, sans-serif;
   background: radial-gradient(
     51.77% 123.88% at 50% 50%,
-    #eeeeee 0%,
-    rgba(184, 187, 189, 0.4) 100%
+    var(--bg-color) 0%,
+    var(--bg-color) 70%
   );
+  color: var(--text-color);
   min-height: 100vh;
 }
 
