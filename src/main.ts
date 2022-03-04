@@ -11,9 +11,11 @@ const blockquote = document.querySelector<HTMLParagraphElement>(
   'figure blockquote p'
 )!;
 const authorElement = document.querySelector<HTMLLinkElement>('#author')!;
+const figure = document.querySelector('main figure')!;
 
 const fetchQuote = async () => {
   try {
+    figure.classList.remove('lineUp');
     toggleLoading(randomIcon);
     randomBtn.disabled = true;
 
@@ -24,14 +26,13 @@ const fetchQuote = async () => {
     console.log(error);
     alert('Failed to get a quote!');
   } finally {
+    figure.classList.add('lineUp');
     randomBtn.disabled = false;
     toggleLoading(randomIcon);
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchQuote();
-});
+document.addEventListener('DOMContentLoaded', fetchQuote);
 
 randomBtn.onclick = () => {
   fetchQuote();

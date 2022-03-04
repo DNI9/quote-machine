@@ -29,3 +29,18 @@ main #author {
 main #author::before {
   content: '— ';
 }
+
+.lineUp {
+  animation: 0.5s anim-lineUp ease-out;
+}
+
+@keyframes anim-lineUp {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
