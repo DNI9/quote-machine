@@ -19,10 +19,11 @@ const loadingTitle = document.querySelector<HTMLHeadingElement>(
 const fetchQuotes = async () => {
   try {
     const quotes = await getQuoteByAuthor(author!);
-    title.innerHTML += `<h1>${quotes[0].author}</h1>`;
+    title.classList.add('lineUp');
+    title.innerHTML += `<p>Quotes By </p><h1>${quotes[0].author}</h1>`;
 
     quotes.forEach(q => {
-      quotesSection.innerHTML += `<figure>
+      quotesSection.innerHTML += `<figure class='lineUp'>
 				<blockquote id="quote">
 					<p>${q.content}</p>
 				</blockquote>

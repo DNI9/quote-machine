@@ -41,18 +41,3 @@ main #author::before {
 #author a:hover {
   box-shadow: inset 0 -45px 0 #7d7d8556, 0 2px 0 #2a2a2c56;
 }
-
-.lineUp {
-  animation: 0.5s anim-lineUp ease-out;
-}
-
-@keyframes anim-lineUp {
-  from {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
