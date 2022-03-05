@@ -15,7 +15,6 @@ export const themeSwitcher = (element: HTMLInputElement) => {
       localStorage.setItem(THEME_KEY, 'dark');
     } else {
       document.body.classList.remove('dark');
-      // localStorage.removeItem('switchedTheme');
       localStorage.removeItem(THEME_KEY);
     }
   });
