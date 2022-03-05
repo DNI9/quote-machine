@@ -12,8 +12,8 @@
 </div>
 <br>
 
-![Home Page](assets/quote-machine-dark.png)
-![Author Page](assets/quote-machine-light.png)
+[![Home Page](assets/quote-machine-dark.png)](https://quote-machine-dni9.vercel.app)
+[![Author Page](assets/quote-machine-light.png)](https://quote-machine-dni9.vercel.app/author.html?author=nikola-tesla)
 
 ---
 
