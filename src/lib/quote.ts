@@ -21,10 +21,18 @@ export async function getRandomQuote(): Promise<QuoteType> {
   return fetcher<QuoteType>(BASE_URL + '/random');
 }
 
-export async function getQuoteByAuthor(authorSlug: string, limit: number = 5) {
-  type JSONResponse = {results?: Array<QuoteType>};
-  const url = BASE_URL + `/quotes?author=${authorSlug}&limit=${limit}`;
-  const {results} = await fetcher<JSONResponse>(url);
-  if (!results?.length) throw new Error('No quotes found');
-  return results;
+export async function getQuoteByAuthor(
+  authorSlug: string,
+  limit: number = 5,
+  page: number = 1
+) {
+  type JSONResponse = {
+    results?: Array<QuoteType>;
+    page: number;
+    totalPages: number;
+    lastItemIndex: number | null;
+  };
+  const url =
+    BASE_URL + `/quotes?author=${authorSlug}&limit=${limit}&page=${page}`;
+  return await fetcher<JSONResponse>(url);
 }

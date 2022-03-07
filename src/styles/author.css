@@ -36,3 +36,9 @@ main .loading-title {
   font-weight: 400;
   margin-bottom: 1rem;
 }
+
+#quote-end-msg {
+  text-align: center;
+  font-size: 0.6em;
+  opacity: 0.5;
+}
